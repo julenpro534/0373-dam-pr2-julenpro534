@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Dashboard — Prepara el teu viatge</title>
+    <meta name="description" content="Dashboard dinàmic per consultar informació en temps real sobre la teva propera destinació de viatge. Temps, moneda i més.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+</head>
+<body>
+    <header>
+        <h1 id="main-title">Travel Dashboard</h1>
+        <div class="selector-container">
+            <select id="city-select">
+                <option value="" disabled selected>Selecciona una ciutat...</option>
+                <option value="barcelona">Barcelona</option>
+                <option value="london">London</option>
+                <option value="paris">Paris</option>
+                <option value="new_york">New York</option>
+                <option value="tokyo">Tokyo</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="loading-spinner" class="loading">
+        <div class="spinner"></div>
+        <p>Carregant dades...</p>
+    </div>
+
+    <main id="dashboard" class="dashboard">
+        <section id="summary-section" class="card summary-card">
+            <div class="summary-info">
+                <h2 id="summary-city">Barcelona</h2>
+                <p id="summary-country">Espanya</p>
+                <p id="summary-currency">Moneda: EUR</p>
+            </div>
+            <div class="summary-temp" id="summary-temp">24°C</div>
+        </section>
+
+        <div class="grid-widgets">
+            <section id="weather-section" class="card weather-widget">
+                <div class="weather-header">
+                    <span id="weather-icon" class="weather-icon">☀️</span>
+                    <div>
+                        <h3>Temps</h3>
+                        <p id="weather-desc">Cel clar</p>
+                    </div>
+                </div>
+                <div class="prob-container">
+                    <p>Probabilitat de pluja: <span id="prob-val">0%</span></p>
+                    <div class="prob-bar-bg">
+                        <div id="prob-bar-fill" class="prob-bar-fill"></div>
+                    </div>
+                    <p id="prob-text" class="status-msg">Sense pluja</p>
+                </div>
+            </section>
+
+            <section id="currency-section" class="card currency-widget">
+                <h3>Conversió de Moneda</h3>
+                <div class="input-group">
+                    <label for="eur-amount">Import en EUR</label>
+                    <input type="number" id="eur-amount" value="100" min="0" step="1">
+                </div>
+                <div class="conversion-result">
+                    <p><span id="original-amount">100</span> EUR equivalen a:</p>
+                    <p class="result-value" id="conversion-result">0.00 JPY</p>
+                    <p id="exchange-rate-info" class="rate-info"></p>
+                </div>
+            </section>
+        </div>
+
+        <section id="recommendation-section" class="card recommendation-card">
+            <p id="travel-msg" class="recommendation-text">" Benvingut al teu Travel Dashboard! "</p>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
